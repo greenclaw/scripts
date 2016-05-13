@@ -1,0 +1,10 @@
+nova boot --flavor m1.small \
+	--image debian-8.4 \
+	--key-name 'Main cloud key' \
+	--user-data ./docker_install.sh \
+	--security-groups allow_all \
+	--meta description="Test docker server" \
+	--nic net-name='admin_internal_net' \
+	name-of-machine
+
+nova floating-ip-associate docker-new ip-address
